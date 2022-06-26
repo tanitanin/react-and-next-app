@@ -1,28 +1,23 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import Header from './header';
+import Layout from '../components/layout';
 
 export default function Home() {
-  let title = "Next.js Page";
+  let title = "Top page.";
   let message = "This is nextjs sample page.";
 
   return (
-    <div className={styles.container}>
-      <Header title={title} />
-      
-      <main>
-        <h1 className='bg-primary text-white display-4'>React</h1>
-        <div className='container'>
-          <h4 className='my-3'>{title}</h4>
-          <div className='alert alert-primary text-center'>
-            <p className='h5'>{message}</p>
-          </div>
+    <div>
+      <Layout header='Next.js' title={title}>
+        <div className='alert alert-primary text-center'>
+          <p className='h5'>{message}</p>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-      </footer>
+        <Link href='/other'>
+          <a>Go to other page &gt;&gt;</a>
+        </Link>
+      </Layout>
     </div>
   )
 }
